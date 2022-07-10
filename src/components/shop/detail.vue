@@ -1,5 +1,5 @@
 <template>
- <v-card
+  <v-card
     max-width="375"
     class="mx-auto"
   >
@@ -17,7 +17,7 @@
             <v-icon>mdi-chevron-left</v-icon>
           </v-btn>
 
-          <v-spacer></v-spacer>
+          <v-spacer />
 
           <v-btn
             dark
@@ -35,7 +35,7 @@
           </v-btn>
         </v-card-title>
 
-        <v-spacer></v-spacer>
+        <v-spacer />
 
         <v-card-title class="white--text pl-12 pt-12">
           <div class="text-h4 pl-12 pt-12">
@@ -64,7 +64,7 @@
       </v-list-item>
 
       <v-list-item>
-        <v-list-item-action></v-list-item-action>
+        <v-list-item-action />
 
         <v-list-item-content>
           <v-list-item-title>(323) 555-6789</v-list-item-title>
@@ -76,7 +76,7 @@
         </v-list-item-icon>
       </v-list-item>
 
-      <v-divider inset></v-divider>
+      <v-divider inset />
 
       <v-list-item>
         <v-list-item-icon>
@@ -92,7 +92,7 @@
       </v-list-item>
 
       <v-list-item>
-        <v-list-item-action></v-list-item-action>
+        <v-list-item-action />
 
         <v-list-item-content>
           <v-list-item-title>ali_connors@example.com</v-list-item-title>
@@ -100,7 +100,7 @@
         </v-list-item-content>
       </v-list-item>
 
-      <v-divider inset></v-divider>
+      <v-divider inset />
 
       <v-list-item>
         <v-list-item-icon>
@@ -117,3 +117,10 @@
     </v-list>
   </v-card>
 </template>
+
+
+<script>
+export default {
+  name: 'DetailCompo'
+}
+</script>

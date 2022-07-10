@@ -1,18 +1,18 @@
 <template>
   <div>
-    <SignUp />
+    <sign-up />
   </div>
 </template>
 
 <script>
 import SignUp from '@/components/member/SignUp.vue';
   export default {
-    name: 'signUp',
+    name: 'SignUp',
+    components: {
+      'sign-up':SignUp
+    },
     data: () => ({
 
     }),
-    components: {
-      SignUp
-    },
   }
 </script>

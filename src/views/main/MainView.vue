@@ -5,11 +5,11 @@
 </template>
 
 <script>
-import KoreanShop from '@/components/home/KoreanShop.vue'
+import KoreanShop from '@/components/main/KoreanShop.vue'
 
 
   export default {
-    name: 'homeView',
+    name: 'MainView',
 
     components: {
         KoreanShop

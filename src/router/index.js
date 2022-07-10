@@ -12,16 +12,26 @@ const routes = [
     ),
     children :[
       {
-        path: '/home',
-        name: 'homeView',
+        path: '/main',
+        name: 'MainView',
         component: () => import(
-          '@/views/home/HomeView'
+          '@/views/main/MainView'
         ),
 
-      }
+      },
+      {
+        path: '/view-myinfo',
+        name: 'viewMyinfo',
+        component: () => import('@/views/member/ViewMyinfo.vue')
+      },
+      {
+        path: '/modify-yinfo',
+        name: 'modifyMyinfo',
+        component: () => import('@/views/member/ModifyMyinfo.vue')
+      },
     ]
   },
-  //authentication layout
+  // authentication layout
   {
     path: '/authentication',
     component: () => import(
@@ -34,21 +44,12 @@ const routes = [
         component: () => import('@/views/member/SigninView.vue')
       },
       {
-        path: '/sign-up',
+        path: '/authentication/sign-up',
         name: 'signUp',
         component: () => import('@/views/member/SignupView.vue')
       },
 
-      {
-        path: '/view-myinfo',
-        name: 'viewMyinfo',
-        component: () => import('@/views/member/ViewMyinfo.vue')
-      },
-      {
-        path: '/modify-yinfo',
-        name: 'modifyMyinfo',
-        component: () => import('@/views/member/ModifyMyinfo.vue')
-      },
+
     ]
   },
   //worksheet

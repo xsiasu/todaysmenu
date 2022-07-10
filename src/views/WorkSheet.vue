@@ -1,38 +1,42 @@
 <template>
-<div>
- <v-simple-table dense dark>
+  <div>
+    <v-simple-table
+      dense
+      dark
+    >
+      <template #default>
+        <thead>
+          <tr>
+            <th class="text-left">
+              Name
+            </th>
+            <th class="text-left">
+              Path
+            </th>
+            <th class="text-left">
+              link
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr
+            v-for="(item, index) in list"
+            :key="item.name"
+          >
+            <td>{{ index + 1 }}</td>
+            <td>{{ item.name }}</td>
+            <td>
+              <router-link :to="{name:`${item.path}`}">
+                <a>{{ item.name }}</a>
+              </router-link>
+            </td>
 
-    <template v-slot:default>
-      <thead>
-        <tr>
-          <th class="text-left">
-            Name
-          </th>
-          <th class="text-left">
-            Path
-          </th>
-          <th class="text-left">
-            link
-          </th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr
-          v-for="(item, index) in list"
-          :key="item.name"
-        >
-        <td>{{index + 1}}</td>
-          <td>{{ item.name }}</td>
-          <td><router-link :to="{name:`${item.path}`}"><a>{{item.name}}</a></router-link></td>
-
-<!-- :to="{name:'signIn'}" -->
-
-
-        </tr>
-      </tbody>
-    </template>
-  </v-simple-table>
-</div>
+            <!-- :to="{name:'signIn'}" -->
+          </tr>
+        </tbody>
+      </template>
+    </v-simple-table>
+  </div>
 </template>
 <script>
   export default {
@@ -40,8 +44,8 @@
       return {
         list: [
           {
-            name: '홈',
-            path: 'homeView',
+            name: '메인',
+            path: 'MainView',
           },
 
           {
