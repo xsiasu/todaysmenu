@@ -12,8 +12,8 @@ const routes = [
     ),
     children :[
       {
-        path: '/',
-        name: 'home',
+        path: '/home',
+        name: 'homeView',
         component: () => import(
           '@/views/home/HomeView'
         ),
@@ -22,41 +22,41 @@ const routes = [
     ]
   },
   //authentication layout
-  // {
-  //   path: '/authentication',
-  //   component: () => import(
-  //     '@/layouts/authentication/Index'
-  //   ),
-  //   children: [
-  //     {
-  //       path: '/sign-in',
-  //       name: 'signIn',
-  //       component: () => import('@/member/SigninView.vue')
-  //     },
-  //     {
-  //       path: '/sign-up',
-  //       name: 'signUp',
-  //       component: () => import('@/member/SignupView.vue')
-  //     },
+  {
+    path: '/authentication',
+    component: () => import(
+      '@/layouts/authentication/Index'
+    ),
+    children: [
+      {
+        path: '/sign-in',
+        name: 'signIn',
+        component: () => import('@/views/member/SigninView.vue')
+      },
+      {
+        path: '/sign-up',
+        name: 'signUp',
+        component: () => import('@/views/member/SignupView.vue')
+      },
 
-  //     {
-  //       path: '/view-myinfo',
-  //       name: '',
-  //       component: () => import('@/member/SignupView.vue')
-  //     },
-  //     {
-  //       path: '/modify-myinfo',
-  //       name: '',
-  //       component: () => import('@/member/SignupView.vue')
-  //     },
-  //   ]
-  // },
+      {
+        path: '/view-myinfo',
+        name: 'viewMyinfo',
+        component: () => import('@/views/member/ViewMyinfo.vue')
+      },
+      {
+        path: '/modify-yinfo',
+        name: 'modifyMyinfo',
+        component: () => import('@/views/member/ModifyMyinfo.vue')
+      },
+    ]
+  },
   //worksheet
-  // {
-  //   path: '/work-sheet',
-  //   name: '',
-  //   component: () => import('@/WorkSheet.vue')
-  // }
+  {
+    path: '/work-sheet',
+    name: '',
+    component: () => import('@/views/WorkSheet.vue')
+  }
 
 ]
 

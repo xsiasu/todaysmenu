@@ -1,6 +1,6 @@
 <template>
 <div>
- <v-simple-table dense>
+ <v-simple-table dense dark>
 
     <template v-slot:default>
       <thead>
@@ -18,14 +18,15 @@
       </thead>
       <tbody>
         <tr
-          v-for="item in list"
+          v-for="(item, index) in list"
           :key="item.name"
         >
+        <td>{{index + 1}}</td>
           <td>{{ item.name }}</td>
-          <td>{{ item.path }}</td>
+          <td><router-link :to="{name:`${item.path}`}"><a>{{item.name}}</a></router-link></td>
 
+<!-- :to="{name:'signIn'}" -->
 
-          <td><router-link :to=""><a>home</a></router-link></td>
 
         </tr>
       </tbody>
@@ -39,21 +40,26 @@
       return {
         list: [
           {
+            name: '홈',
+            path: 'homeView',
+          },
+
+          {
             name: '로그인',
-            path: 'member/sign-in',
+            path: 'signIn',
           },
 
           {
             name: '회원등록',
-            path: 'member/sign-up',
+            path: 'signUp',
           },
           {
             name: '나의정보보기',
-            path: 'member/view-myinfo',
+            path: 'viewMyinfo',
           },
           {
             name: '나의정보수정',
-            path: 'member/modify-myinfo',
+            path: 'modifyMyinfo',
           },
         ],
       }

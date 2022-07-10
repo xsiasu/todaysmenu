@@ -9,17 +9,19 @@
           transition="scale-transition"
           width="40"
         />
-        <v-img
-          alt="Vuetify Name"
-          class="shrink mt-1 hidden-sm-and-down"
-          contain
-          min-width="100"
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
-          width="100"
-        />
       </div>
+
       <v-spacer></v-spacer>
-      <div>
+      <v-text-field
+        append-icon="mdi-microphone"
+        class="mx-4"
+        flat
+        hide-details
+        label="Search"
+        prepend-inner-icon="mdi-magnify"
+        solo-inverted
+      ></v-text-field>
+       <div>
          <router-link :to="{name:'home'}"><a>home</a></router-link>
          <router-link :to="{name:'about'}"><a>about</a></router-link>
          <router-link :to="{name:'signIn'}"><a>signin</a></router-link>
@@ -31,7 +33,7 @@
 <script>
 
 export default {
-  name: '',
+  name : 'IndexView',
   components: {
 
   }

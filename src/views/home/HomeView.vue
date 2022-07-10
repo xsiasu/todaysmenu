@@ -1,17 +1,19 @@
 <template>
   <div>
-    home component
+    <korean-shop />
   </div>
 </template>
 
 <script>
-  
+import KoreanShop from '@/components/home/KoreanShop.vue'
+
 
   export default {
-    name: 'HomeView',
+    name: 'homeView',
 
     components: {
-  
+        KoreanShop
+
     },
   }
 </script>

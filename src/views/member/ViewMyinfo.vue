@@ -1,18 +1,18 @@
 <template>
   <div>
-    <ModifySignup />
+    <ViewMyinfo />
   </div>
 </template>
 
 <script>
-import ModifySignup from '@/components/member/ModifySignup.vue';
+import ViewMyinfo from '@/components/member/ViewMyinfo.vue';
   export default {
-    name: 'modifysignup',
+    name: 'viewMyinfo',
     data: () => ({
 
     }),
     components: {
-      ModifySignup
+      ViewMyinfo
     },
   }
 </script>
