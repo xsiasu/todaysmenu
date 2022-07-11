@@ -2,7 +2,6 @@
   <div>
     <v-simple-table
       dense
-      dark
     >
       <template #default>
         <thead>
