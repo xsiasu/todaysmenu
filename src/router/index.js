@@ -39,7 +39,7 @@ const routes = [
     ),
     children: [
       {
-        path: '/sign-in',
+        path: '/authentication/sign-in',
         name: 'signIn',
         component: () => import('@/views/member/SigninView.vue')
       },
