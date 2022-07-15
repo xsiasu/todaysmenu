@@ -12,12 +12,18 @@ const routes = [
     ),
     children :[
       {
+        path: '/api/employees',
+        name: 'EmployeeView',
+        component: () => import(
+          '@/views/shop/ShoplistView'
+        ),
+      },
+      {
         path: '/main',
         name: 'MainView',
         component: () => import(
           '@/views/main/MainView'
         ),
-
       },
       {
         path: '/view-myinfo',
@@ -28,7 +34,7 @@ const routes = [
         path: '/modify-yinfo',
         name: 'modifyMyinfo',
         component: () => import('@/views/member/ModifyMyinfo.vue')
-      },
+      }
     ]
   },
   // authentication layout
