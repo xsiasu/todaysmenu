@@ -23,8 +23,8 @@
           :key="employee.id"
         >
           <td>{{ employee.id }}</td>
-          <td>{{ employee.firstname }}</td>
-          <td>{{ employee.lasttname }}</td>
+          <td>{{ employee.firstName }}</td>
+          <td>{{ employee.lastName }}</td>
           <td>{{ employee.email }}</td>
         </tr>
       </tbody>
@@ -34,7 +34,7 @@
 
 
 <script>
-import EmployeeService from '@/service/EmployeeService'
+import employeeApi from '@/api/employees'
   export default {
     name :'EmployeeList',
     components: {
@@ -47,7 +47,7 @@ import EmployeeService from '@/service/EmployeeService'
     },
     methods : {
       getEmployees(){
-        EmployeeService.getEmployees().then((Response) => {
+        employeeApi.getEmployees().then((Response) => {
           this.employees = Response.data;
         })
       }

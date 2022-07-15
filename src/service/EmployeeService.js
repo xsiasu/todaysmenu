@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const EMPLOYEE_API_BASE_URL = "http://localhost:8081/api/employees"
+const EMPLOYEE_API_BASE_URL = "http://localhost:8081/api/message/employees"
 
 class EmployeesService {
   getEmployees() {

@@ -12,7 +12,7 @@ const routes = [
     ),
     children :[
       {
-        path: '/api/employees',
+        path: '/employees',
         name: 'EmployeeView',
         component: () => import(
           '@/views/shop/ShoplistView'
