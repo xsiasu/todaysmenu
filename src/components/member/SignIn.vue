@@ -6,12 +6,15 @@
       flat
     >
       <h1>ログイン</h1>
-      <v-form v-model="valid">
+      <v-form
+        @submit.prevent="handleSubmit"
+      >
         <v-container>
           <v-row>
             <v-col cols="12">
               <h3>id</h3>
               <v-text-field
+
                 type="text"
                 label="id"
                 required
@@ -24,6 +27,7 @@
             <v-col cols="12">
               <h3>password</h3>
               <v-text-field
+
                 type="password"
                 label="password"
                 required
@@ -39,6 +43,7 @@
                 large
                 depressed
                 color="primary"
+                type="submit"
               >
                 ログイン
               </v-btn>
@@ -51,12 +56,22 @@
 </template>
 <script>
   export default {
+    name : 'SignIn',
     components: {
 
     },
 
     data: () => ({
 
+
     }),
+    methods : {
+      handleSubmit(){
+
+        console.log('submited')
+
+
+      }
+    }
   }
 </script>

@@ -7,7 +7,10 @@
       tile
     >
       <h1>登録</h1>
-      <v-form v-model="valid">
+      <v-form
+        v-model="valid"
+        @submit.prevent="handleSubmit"
+      >
         <v-container>
           <v-row>
             <v-col cols="12">
@@ -95,5 +98,10 @@
         v => /.+@.+/.test(v) || 'E-mail must be valid',
       ],
     }),
+    methods : {
+      handleSubmit(){
+        console.log("submitted")
+      }
+    }
   }
 </script>
