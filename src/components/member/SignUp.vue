@@ -8,7 +8,6 @@
     >
       <h1>登録</h1>
       <v-form
-        v-model="valid"
         @submit.prevent="handleSubmit"
       >
         <v-container>
@@ -21,29 +20,28 @@
               />
             </v-col>
           </v-row>
+
           <v-row>
             <v-col cols="4">
               <v-text-field
-                v-model="lastname"
-                :rules="nameRules"
-                :counter="8"
+                v-model="last_name"
                 label="氏名"
                 solo
               />
             </v-col>
             <v-col cols="8">
               <v-text-field
-                v-model="firstname"
-                :rules="nameRules"
-                :counter="10"
+                v-model="first_name"
                 label="お名前"
                 solo
               />
             </v-col>
           </v-row>
+
           <v-row>
             <v-col cols="12">
               <v-text-field
+                v-model="password"
                 type="password"
                 label="password"
                 solo
@@ -53,8 +51,18 @@
           <v-row>
             <v-col cols="12">
               <v-text-field
+                v-model="confirm_password"
+                type="password"
+                label="confirm_password"
+                solo
+              />
+            </v-col>
+          </v-row>
+          <v-row>
+            <v-col cols="12">
+              <v-text-field
                 v-model="email"
-                :rules="emailRules"
+                type="text"
                 label="E-mail"
                 solo
               />
@@ -67,6 +75,7 @@
                 large
                 depressed
                 color="primary"
+                type="submit"
               >
                 登録
               </v-btn>
@@ -79,28 +88,31 @@
 </template>
 
 <script>
+import axios from "axios";
   export default {
     components: {
 
     },
 
     data: () => ({
-      valid: false,
-      firstname: '',
-      lastname: '',
-      nameRules: [
-        v => !!v || 'Name is required',
-        v => v.length <= 10 || 'Name must be less than 10 characters',
-      ],
-      email: '',
-      emailRules: [
-        v => !!v || 'E-mail is required',
-        v => /.+@.+/.test(v) || 'E-mail must be valid',
-      ],
+        first_name: '',
+        last_name: '',
+        email: '',
+        password : '',
+        confirm_password : '',
     }),
     methods : {
-      handleSubmit(){
-        console.log("submitted")
+      async handleSubmit(){
+          await axios.post('sign-up',{
+            first_name : this.first_name,
+            last_name : this.last_name,
+            email : this.email,
+            password : this.password,
+            confirm_password : this.confirm_password,
+          })
+
+
+
       }
     }
   }

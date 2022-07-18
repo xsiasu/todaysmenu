@@ -1,6 +1,6 @@
 <template>
   <v-simple-table>
-    <template v-slot:default>
+    <template #default>
       <thead>
         <tr>
           <th class="text-left">
@@ -45,15 +45,15 @@ import employeeApi from '@/api/employees'
         employees : []
       }
     },
+    created() {
+      this.getEmployees();
+    },
     methods : {
       getEmployees(){
         employeeApi.getEmployees().then((Response) => {
           this.employees = Response.data;
         })
       }
-    },
-    created() {
-      this.getEmployees();
     }
 
   }

@@ -1,7 +1,7 @@
 <template>
- <div>
-  <shop-list />
- </div>
+  <div>
+    <shop-list />
+  </div>
 </template>
 
 

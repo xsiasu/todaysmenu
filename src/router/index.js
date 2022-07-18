@@ -45,12 +45,12 @@ const routes = [
     ),
     children: [
       {
-        path: '/authentication/sign-in',
+        path: '/sign-in',
         name: 'signIn',
         component: () => import('@/views/member/SigninView.vue')
       },
       {
-        path: '/authentication/sign-up',
+        path: '/sign-up',
         name: 'signUp',
         component: () => import('@/views/member/SignupView.vue')
       },

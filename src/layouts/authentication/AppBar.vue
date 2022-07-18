@@ -1,7 +1,11 @@
 <template>
-   <v-app-bar elevation="1" app class="appbar">
-      <div class="d-flex align-center">
-       <router-link :to="{name:'signUp'}">
+  <v-app-bar
+    elevation="1"
+    app
+    class="appbar"
+  >
+    <div class="d-flex align-center">
+      <router-link :to="{name:'signUp'}">
         <v-img
           alt="Logo"
           class="shrink mr-2"
@@ -10,10 +14,12 @@
           transition="scale-transition"
           width="40"
         />
-        </router-link>
-       <router-link :to="{name:'signUp'}"><a>sign up</a></router-link>
-      </div>
-    </v-app-bar>
+      </router-link>
+      <router-link :to="{name:'signUp'}">
+        <a>sign up</a>
+      </router-link>
+    </div>
+  </v-app-bar>
 </template>
 
 <script>
