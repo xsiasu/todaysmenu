@@ -10,6 +10,7 @@
         width="40"
       />
     </div>
+
     <v-spacer />
     <v-text-field
       append-icon="mdi-microphone"
@@ -53,8 +54,9 @@
 export default {
   data: () => ({
     items: [
-      { title:'siginin',path: 'signIn' },
-      { title:'signup',path: 'signUp' },
+      { title:'로그인',path: 'signIn' },
+      { title:'회원가입',path: 'signUp' },
+      { title:'마이페이지',path: 'viewMyinfo' }
     ],
   }),
 }

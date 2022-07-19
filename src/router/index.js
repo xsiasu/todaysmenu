@@ -1,8 +1,25 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-
+import store from '@/store'
 Vue.use(VueRouter)
 
+const rejecAuthtUser = (to, from, next) => {
+  if(store.state.isLogin === true) {
+    alert("이밎로그인되었습니다.")
+    next("/")
+  } else {
+    next()
+  }
+}
+
+const onlyAuth = (to, from, next) => {
+  if(store.state.isLogin === false) {
+    alert("로그인이 필요한 기능입니다.")
+    next("/")
+  } else {
+    next()
+  }
+}
 const routes = [
   //default layout
   {
@@ -28,6 +45,7 @@ const routes = [
       {
         path: '/view-myinfo',
         name: 'viewMyinfo',
+        beforeEnter :onlyAuth,
         component: () => import('@/views/member/ViewMyinfo.vue')
       },
       {
@@ -47,6 +65,7 @@ const routes = [
       {
         path: '/sign-in',
         name: 'signIn',
+        beforeEnter :rejecAuthtUser,
         component: () => import('@/views/member/SigninView.vue')
       },
       {
