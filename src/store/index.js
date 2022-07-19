@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-
+import router from '../router'
 Vue.use(Vuex)
 
 export default new Vuex.Store({
@@ -31,6 +31,7 @@ export default new Vuex.Store({
   },
   actions: {
     login({state, commit},signinObj){
+      //sigininObj에 입력값을 받아서 커밋한다
       let seletedUser = null;
         state.allUsers.forEach(user => {
           if(user.email === signinObj.email) {
@@ -38,11 +39,17 @@ export default new Vuex.Store({
           }
         });
 
-        seletedUser === null
-          ?commit('loginError')
-          :seletedUser.password !== signinObj.password
-            ?commit('loginError')
-            :commit('loginSuccess')
+        if(seletedUser === null || seletedUser.password !== signinObj.password)
+          commit('loginError')
+        else {
+          commit('loginSuccess')
+          //로그인성공시 리다이렉트
+          router.push({name:"mypage"})
+        }
+        console.log({signinObj})
+    },
+    signUp(){
+
     }
   },
   modules: {

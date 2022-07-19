@@ -5,7 +5,7 @@
       max-width="400"
       flat
     >
-      <h1>ログイン</h1>
+      <h1>로그인</h1>
       <v-form>
         <v-container>
           <div>
@@ -61,7 +61,7 @@
                   email:email,
                   password:password})"
               >
-                ログイン
+                로그인
               </v-btn>
             </v-col>
           </v-row>
@@ -78,7 +78,6 @@ import {mapActions, mapState} from 'vuex'
     components: {
 
     },
-
     data: () => ({
         id : null,
         password : null,

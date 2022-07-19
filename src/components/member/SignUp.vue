@@ -16,6 +16,7 @@
               <v-text-field
                 type="text"
                 label="id"
+                v-model="id"
                 solo
               />
             </v-col>
@@ -53,7 +54,7 @@
               <v-text-field
                 v-model="confirm_password"
                 type="password"
-                label="confirm_password"
+                label="confirm password"
                 solo
               />
             </v-col>
@@ -76,6 +77,7 @@
                 depressed
                 color="primary"
                 type="submit"
+                @click="signUp('signUp')"
               >
                 登録
               </v-btn>
@@ -88,32 +90,38 @@
 </template>
 
 <script>
-import axios from "axios";
+// import axios from "axios";
+import {mapActions, mapState} from 'vuex'
   export default {
     components: {
 
     },
 
     data: () => ({
-        first_name: '',
-        last_name: '',
-        email: '',
-        password : '',
-        confirm_password : '',
+
+
+
+        first_name: null,
+        last_name: null,
+        email: null,
+        password : null,
+        confirm_password : null,
     }),
+    comments : {
+      ...mapState()
+    },
     methods : {
-      async handleSubmit(){
-          await axios.post('sign-up',{
-            first_name : this.first_name,
-            last_name : this.last_name,
-            email : this.email,
-            password : this.password,
-            confirm_password : this.confirm_password,
-          })
 
-
-
-      }
+      ...mapActions('signUp')
+      // async handleSubmit(){
+      //     await axios.post('sign-up',{
+      //       first_name : this.first_name,
+      //       last_name : this.last_name,
+      //       email : this.email,
+      //       password : this.password,
+      //       confirm_password : this.confirm_password,
+      //     })
+      // }
     }
   }
 </script>
