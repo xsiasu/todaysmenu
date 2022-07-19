@@ -69,7 +69,7 @@
   </div>
 </template>
 <script>
-import axios from "axios";
+// import axios from "axios";
   export default {
     name : 'SignIn',
     components: {
@@ -79,8 +79,9 @@ import axios from "axios";
     data: () => ({
         id : null,
         password : null,
+        email : null,
         allUsers : [
-          {id:1,password:'123456',email:'a@a.com'}
+          {id:1,email:'a@a.com',password:'123456'}
         ],
         isError : false,
         loginSuccess : false
@@ -101,14 +102,14 @@ import axios from "axios";
             ?(this.isError = true)
             :(this.loginSuccess = true)
       },
-      async handleSubmit(){
-        const Response = await axios.post('sign-in',{
-          id : this.id,
-          password : this.password
-        })
+      // async handleSubmit(){
+      //   const Response = await axios.post('sign-in',{
+      //     id : this.id,
+      //     password : this.password
+      //   })
 
-        console.log(Response)
-      }
+      //   console.log(Response)
+      // }
 
     }
   }
