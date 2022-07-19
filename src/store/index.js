@@ -6,7 +6,10 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     allUsers : [
-      {id:1,password:'123456',email:'a@a.com'}
+      {id:1,email:'a@gmail.com',password:'123456'},
+      {id:2,email:'b@gmail.com',password:'123456'},
+      {id:3,email:'c@gmail.com',password:'123456'},
+      {id:4,email:'d@gmail.com',password:'123456'}
     ],
     isLogin : false,
     isLoginError : false
@@ -27,7 +30,20 @@ export default new Vuex.Store({
     }
   },
   actions: {
+    login({state, commit},signinObj){
+      let seletedUser = null;
+        state.allUsers.forEach(user => {
+          if(user.email === signinObj.email) {
+            seletedUser = user;
+          }
+        });
 
+        seletedUser === null
+          ?commit('loginError')
+          :seletedUser.password !== signinObj.password
+            ?commit('loginError')
+            :commit('loginSuccess')
+    }
   },
   modules: {
 

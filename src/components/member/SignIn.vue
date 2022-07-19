@@ -11,14 +11,14 @@
           <div>
             <v-alert
               type="success"
-              :value="loginSuccess"
+              :value="isLogin"
             >
               로그인성공
             </v-alert>
 
             <v-alert
               type="error"
-              :value="isError"
+              :value="isLoginError"
             >
               로그인실패
             </v-alert>
@@ -57,7 +57,9 @@
                 depressed
                 color="primary"
                 type="submit"
-                @click.prevent="login"
+                @click.prevent="login({
+                  email:email,
+                  password:password})"
               >
                 ログイン
               </v-btn>
@@ -69,6 +71,7 @@
   </div>
 </template>
 <script>
+import {mapActions, mapState} from 'vuex'
 // import axios from "axios";
   export default {
     name : 'SignIn',
@@ -80,37 +83,12 @@
         id : null,
         password : null,
         email : null,
-        allUsers : [
-          {id:1,email:'a@a.com',password:'123456'}
-        ],
-        isError : false,
-        loginSuccess : false
     }),
+    computed : {
+      ...mapState(['isLogin','isLoginError'])
+    },
     methods : {
-      login(){
-
-        let seletedUser = null;
-        this.allUsers.forEach(user => {
-          if(user.email === this.email) {
-            seletedUser = user;
-          }
-        });
-
-        seletedUser === null
-          ?(this.isError = true)
-          :seletedUser.password !== this.password
-            ?(this.isError = true)
-            :(this.loginSuccess = true)
-      },
-      // async handleSubmit(){
-      //   const Response = await axios.post('sign-in',{
-      //     id : this.id,
-      //     password : this.password
-      //   })
-
-      //   console.log(Response)
-      // }
-
+      ...mapActions(['login'])
     }
   }
 </script>
