@@ -5,11 +5,12 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    userInfo : null,
     allUsers : [
-      {id:1,email:'a@gmail.com',password:'123456'},
-      {id:2,email:'b@gmail.com',password:'123456'},
-      {id:3,email:'c@gmail.com',password:'123456'},
-      {id:4,email:'d@gmail.com',password:'123456'}
+      {id:1,email:'a@gmail.com',password:'123456',name:'sean'},
+      {id:2,email:'b@gmail.com',password:'123456',name:'yumi'},
+      {id:3,email:'c@gmail.com',password:'123456',name:'sohui'},
+      {id:4,email:'d@gmail.com',password:'123456',name:'hoyeong'}
     ],
     isLogin : false,
     isLoginError : false
@@ -19,9 +20,10 @@ export default new Vuex.Store({
   },
   mutations: {
     //로그인이 성공했을때
-    loginSuccess(state) {
+    loginSuccess(state, payload) {
       state.isLogin = true
       state.isLoginError = false
+      state.userInfo = payload
     },
     //로그인이 실패했을때
     loginError(state) {
@@ -42,9 +44,9 @@ export default new Vuex.Store({
         if(seletedUser === null || seletedUser.password !== signinObj.password)
           commit('loginError')
         else {
-          commit('loginSuccess')
+          commit('loginSuccess',seletedUser)
           //로그인성공시 리다이렉트
-          router.push({name:"mypage"})
+          router.push({name:"viewMyinfo"})
         }
         console.log({signinObj})
     },

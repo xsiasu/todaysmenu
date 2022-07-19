@@ -6,6 +6,7 @@
 
 <script>
 import SignUp from '@/components/member/SignUp.vue';
+
   export default {
     name: 'SignUp',
     components: {
@@ -14,5 +15,7 @@ import SignUp from '@/components/member/SignUp.vue';
     data: () => ({
 
     }),
+
+
   }
 </script>

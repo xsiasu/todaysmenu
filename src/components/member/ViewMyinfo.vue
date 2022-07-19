@@ -16,7 +16,7 @@
               elevation="2"
               class="pa-3"
             >
-              id
+              {{userInfo.name}}님환경합니다.
             </v-card>
           </v-col>
         </v-row>
@@ -80,24 +80,17 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
   export default {
     components: {
 
     },
 
     data: () => ({
-      valid: false,
-      firstname: '',
-      lastname: '',
-      nameRules: [
-        v => !!v || 'Name is required',
-        v => v.length <= 10 || 'Name must be less than 10 characters',
-      ],
-      email: '',
-      emailRules: [
-        v => !!v || 'E-mail is required',
-        v => /.+@.+/.test(v) || 'E-mail must be valid',
-      ],
+
     }),
+    computed : {
+      ...mapState(['userInfo'])
+    }
   }
 </script>
