@@ -5,6 +5,9 @@
     class="appbar"
   >
     <div class="d-flex align-center">
+      <router-link to="/">
+        <a>홈</a>
+      </router-link>
       <router-link :to="{name:'signUp'}">
         <v-img
           alt="Logo"

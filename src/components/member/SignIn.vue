@@ -9,12 +9,12 @@
       <v-form>
         <v-container>
           <div>
-            <v-alert
+            <!-- <v-alert
               type="success"
               :value="isLogin"
             >
               로그인성공
-            </v-alert>
+            </v-alert> -->
 
             <v-alert
               type="error"
@@ -63,6 +63,9 @@
               >
                 로그인
               </v-btn>
+
+              <!-- <v-btn @click="test">text</v-btn>
+              <v-btn @click="postTest">posttest</v-btn> -->
             </v-col>
           </v-row>
         </v-container>
@@ -72,7 +75,7 @@
 </template>
 <script>
 import {mapActions, mapState} from 'vuex'
-// import axios from "axios";
+
   export default {
     name : 'SignIn',
     components: {
@@ -87,7 +90,35 @@ import {mapActions, mapState} from 'vuex'
       ...mapState(['isLogin','isLoginError'])
     },
     methods : {
-      ...mapActions(['login'])
-    }
+      ...mapActions(['login']),
+      //화살표함수를 사용해야 this를 사용해서 vue instance 를 참조할수 있다
+      // test(){
+      //   axios.get('https://reqres.in/api/user?page=2')
+      //     .then(res => {
+      //       // handle success
+      //       console.log(res);
+      //     })
+      //     .catch(err=> {
+      //       // handle err
+      //       console.log(err);
+      //     })
+      //     .then(()=> {
+      //       // always executed
+      //       console.log('test')
+      //     });
+      // },
+      // postTest(){
+      //   axios.post('https://reqres.in/api/register', {
+      //   "email": "eve.holt@reqres.in",
+      //   "password": "pistol"
+      //         })
+      //         .then(res=> {
+      //           console.log(res);
+      //         })
+      //         .catch(err=> {
+      //           console.log(err);
+      //         });
+      //     }
+        }
   }
 </script>

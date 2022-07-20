@@ -1,18 +1,13 @@
 <template>
-  <v-app-bar app>
+  <v-app-bar app dark>
     <div class="d-flex align-center">
-      <v-img
-        alt="Logo"
-        class="shrink mr-2"
-        contain
-        src=""
-        transition="scale-transition"
-        width="40"
-      />
+      <router-link to="/">
+        <a>홈</a>
+      </router-link>
     </div>
 
     <v-spacer />
-    <v-text-field
+    <!-- <v-text-field
       append-icon="mdi-microphone"
       class="mx-4"
       flat
@@ -20,28 +15,42 @@
       label="Search"
       prepend-inner-icon="mdi-magnify"
       solo-inverted
-    />
+    /> -->
     <div class="text-center">
       <v-menu
         offset-y
       >
         <template #activator="{ on, attrs }">
           <v-btn
-            color="primary"
             dark
             v-bind="attrs"
             v-on="on"
+            flat
+            icon
           >
-            마이페이지
+            <v-icon>mdi-checkbox-marked-circle</v-icon>
           </v-btn>
         </template>
-        <v-list>
-          <v-list-item
-            v-for="(item, index) in items"
-            :key="index"
-          >
-            <router-link :to="{name:`${item.path}`}">
-              <a>{{ item.title }}</a>
+        <v-list v-if="isLogin">
+          <v-list-item          >
+            <router-link  :to="{name:'viewMyinfo'}">
+              <a>마이페이지</a>
+            </router-link>
+          </v-list-item>
+          <v-list-item @click="$store.dispatch('logout')">
+              <a>로그아웃</a>
+          </v-list-item>
+        </v-list>
+
+        <v-list v-else>
+          <v-list-item>
+            <router-link  :to="{name:'signIn'}">
+              <a>로그인</a>
+            </router-link>
+          </v-list-item>
+          <v-list-item>
+            <router-link  :to="{name:'signUp'}">
+              <a>회원가입</a>
             </router-link>
           </v-list-item>
         </v-list>
@@ -51,13 +60,13 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 export default {
   data: () => ({
-    items: [
-      { title:'로그인',path: 'signIn' },
-      { title:'회원가입',path: 'signUp' },
-      { title:'마이페이지',path: 'viewMyinfo' }
-    ],
+
   }),
+  computed : {
+    ...mapState(['isLogin'])
+  }
 }
 </script>

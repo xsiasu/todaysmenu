@@ -16,7 +16,7 @@
               elevation="2"
               class="pa-3"
             >
-              {{userInfo.name}}님환경합니다.
+              {{userInfo.lastname}}{{userInfo.firstname}}님환경합니다.
             </v-card>
           </v-col>
         </v-row>
@@ -27,7 +27,7 @@
               elevation="2"
               class="pa-3"
             >
-              id
+              {{userInfo.lastname}}
             </v-card>
           </v-col>
           <v-col cols="8">
@@ -36,7 +36,7 @@
               elevation="2"
               class="pa-3"
             >
-              id
+              {{userInfo.firstname}}
             </v-card>
           </v-col>
         </v-row>
@@ -47,7 +47,7 @@
               elevation="2"
               class="pa-3"
             >
-              id
+              password
             </v-card>
           </v-col>
         </v-row>
@@ -58,7 +58,7 @@
               elevation="2"
               class="pa-3"
             >
-              id
+              {{userInfo.email}}
             </v-card>
           </v-col>
         </v-row>

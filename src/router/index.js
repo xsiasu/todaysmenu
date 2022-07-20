@@ -36,8 +36,8 @@ const routes = [
         ),
       },
       {
-        path: '/main',
-        name: 'MainView',
+        path: '/',
+        name: 'home',
         component: () => import(
           '@/views/main/MainView'
         ),
@@ -71,6 +71,7 @@ const routes = [
       {
         path: '/sign-up',
         name: 'signUp',
+        beforeEnter :rejecAuthtUser,
         component: () => import('@/views/member/SignupView.vue')
       },
 
