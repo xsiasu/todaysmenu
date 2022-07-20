@@ -1,5 +1,5 @@
 <template>
-  <v-app-bar app dark>
+  <v-app-bar app flat>
     <div class="d-flex align-center">
       <router-link to="/">
         <a>홈</a>
@@ -17,18 +17,18 @@
       solo-inverted
     /> -->
     <div class="text-center">
+      <v-btn flat icon><v-icon>mdi-web</v-icon></v-btn>
       <v-menu
         offset-y
       >
         <template #activator="{ on, attrs }">
           <v-btn
-            dark
             v-bind="attrs"
             v-on="on"
             flat
             icon
           >
-            <v-icon>mdi-checkbox-marked-circle</v-icon>
+            <v-icon>mdi-account-details</v-icon>
           </v-btn>
         </template>
         <v-list v-if="isLogin">

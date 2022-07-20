@@ -1,8 +1,7 @@
 <template>
   <v-app-bar
-    elevation="1"
     app
-    class="appbar"
+    flat
   >
     <div class="d-flex align-center">
       <router-link to="/">

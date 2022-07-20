@@ -11,6 +11,7 @@
         @submit.prevent="handleSubmit"
       >
         <v-container>
+          <h1>id</h1>
           <v-row>
             <v-col cols="12">
               <v-text-field
@@ -21,7 +22,7 @@
               />
             </v-col>
           </v-row>
-
+          <h1>お名前</h1>
           <v-row>
             <v-col cols="4">
               <v-text-field
@@ -38,7 +39,7 @@
               />
             </v-col>
           </v-row>
-
+          <h1>password</h1>
           <v-row>
             <v-col cols="12">
               <v-text-field
@@ -49,6 +50,7 @@
               />
             </v-col>
           </v-row>
+          <h1>confirm password</h1>
           <v-row>
             <v-col cols="12">
               <v-text-field
@@ -59,6 +61,7 @@
               />
             </v-col>
           </v-row>
+          <h1>e-mail</h1>
           <v-row>
             <v-col cols="12">
               <v-text-field
