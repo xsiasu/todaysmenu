@@ -6,6 +6,7 @@
           v-for="item in items"
           :key="item.tab"
 
+
         >
           {{ item.tab }}
         </v-tab>

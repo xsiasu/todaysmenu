@@ -31,6 +31,7 @@ export default new Vuex.Store({
       state.isLogin = false
       state.isLoginError = true
     },
+    //로그아웃
     logout(state) {
       state.isLogin = false
       state.isLoginError = false
@@ -38,16 +39,27 @@ export default new Vuex.Store({
     }
   },
   actions: {
-    login({commit},signinObj){
-
+    login({dispatch, commit},signinObj){
+       //post인자의 두번째 인자에는 파라미터 request body
         axios.post('https://reqres.in/api/login',signinObj )
           .then(res => {
             // handle success
-            console.log(res,commit);
+
+            //로그인 성공시 token 이 돌아옴(실제로는 userid값을 받아옴)
+            //token을 header에 포함시켜서 다시 요청
+            let token = res.data.token
+            localStorage.setItem('access-token',token)
+
+
+            dispatch('getMemberInfo')
+
+            .catch(() => {
+              commit("loginError")
+            })
           })
-          .catch(err=> {
+          .catch(()=> {
             // always executed
-            console.log(err)
+            commit("loginError")
           });
 
 
@@ -71,6 +83,28 @@ export default new Vuex.Store({
     logout({commit}) {
       commit('logout')
       router.push( {name : "home"})
+    },
+    getMemberInfo({commit}){
+      let token = localStorage.getItem('access-token')
+      let config = {
+        headers : {
+          "access-token" : token
+        }
+      }
+      axios
+      .get('https://reqres.in/api/users/2',config)
+      .then(response => {
+        let userInfo = {
+          first_name : response.data.data.first_name,
+          last_name : response.data.data.last_name,
+          email: response.data.data.email,
+          avatar : response.data.data.avatar,
+          id : response.data.data.id
+        }
+
+        commit('loginSuccess',userInfo)
+        router.push({name:"home"})
+      })
     }
   },
   modules: {

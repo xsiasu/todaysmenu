@@ -16,7 +16,7 @@
               elevation="2"
               class="pa-3"
             >
-              {{userInfo.lastname}}{{userInfo.firstname}}님환경합니다.
+              {{userInfo.last_name}}{{userInfo.firs_tname}}님환경합니다.
             </v-card>
           </v-col>
         </v-row>
@@ -27,7 +27,7 @@
               elevation="2"
               class="pa-3"
             >
-              {{userInfo.lastname}}
+              {{userInfo.last_name}}
             </v-card>
           </v-col>
           <v-col cols="8">
@@ -36,7 +36,7 @@
               elevation="2"
               class="pa-3"
             >
-              {{userInfo.firstname}}
+              {{userInfo.first_name}}
             </v-card>
           </v-col>
         </v-row>
